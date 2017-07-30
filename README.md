@@ -11,3 +11,5 @@ There is no navigation or whatsoever. You need to use the following keyboard sho
 | Cmd + o | Open option modal|
 | Cmd + w | Close window|
 
+![](./screenshots/main.jpg)
+![](./screenshots/new-window.jpg)
