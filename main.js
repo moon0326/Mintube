@@ -60,7 +60,8 @@ function createWindow (initUrl, frame) {
   mainWindow[mainWindowIndex] = new BrowserWindow({
     width: frameWidth, 
     height: frameHeight,
-    frame: frame
+    frame: frame,
+    icon: path.join(__dirname, "icon.png")
   })
 
   if (typeof initUrl === 'undefined') {

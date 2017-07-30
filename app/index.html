@@ -65,7 +65,7 @@
 
     youtube.addEventListener('did-navigate-in-page', function(e) {
         if (state.openNewWindow === true && e.url.indexOf("https://www.youtube.com/watch?") === 0) {
-            var url = "https://www.youtube.com/embed/" + parseYoutubeVideoId(e.url) + "?autoplay=1"
+            var url = "https://www.youtube.com/embed/" + parseYoutubeVideoId(e.url) + "?autoplay=1&showinfo=0"
             ipc.send('openNewYoutube', url);
             youtube.goBack();
         }
