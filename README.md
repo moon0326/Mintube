@@ -11,5 +11,10 @@ There is no navigation or whatsoever. You need to use the following keyboard sho
 | Cmd + o | Open option modal|
 | Cmd + w | Close window|
 
+# Screenshots
+
+#### Main Window
 ![](./screenshots/main.jpg)
+
+#### Player Window
 ![](./screenshots/new-window.jpg)
