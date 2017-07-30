@@ -20,6 +20,8 @@ There is no navigation or whatsoever. You need to use the following keyboard sho
 ![](./screenshots/main.jpg)
 
 #### Player Window
+Clicking a video thumbnail opens a new player.
+
 ![](./screenshots/new-window.jpg)
 
 #### Options 
