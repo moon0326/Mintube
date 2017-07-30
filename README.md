@@ -18,3 +18,6 @@ There is no navigation or whatsoever. You need to use the following keyboard sho
 
 #### Player Window
 ![](./screenshots/new-window.jpg)
+
+#### Options 
+![](./screenshots/option.jpg)
