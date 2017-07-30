@@ -21,3 +21,7 @@ There is no navigation or whatsoever. You need to use the following keyboard sho
 
 #### Options 
 ![](./screenshots/option.jpg)
+
+# Downloads
+
+[Download v0.1](https://github.com/moon0326/Mintube/releases/download/0.1/mintube.zip)
