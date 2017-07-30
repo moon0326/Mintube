@@ -11,12 +11,17 @@ There is no navigation or whatsoever. You need to use the following keyboard sho
 | Cmd + o | Open option modal|
 | Cmd + w | Close window|
 
+# Downloads
+[Download v0.1](https://github.com/moon0326/Mintube/releases/download/0.1/mintube.zip)
+
 # Screenshots
 
 #### Main Window
 ![](./screenshots/main.jpg)
 
 #### Player Window
+Clicking a video thumbnail opens a new player.
+
 ![](./screenshots/new-window.jpg)
 
 #### Options 
