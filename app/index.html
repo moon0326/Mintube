@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mintube</title>
+    <link rel="stylesheet" href="./vendors/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src='./jquery.min.js'></script>
+    <script src="./vendors/bootstrap/js/bootstrap.js"></script>
+    <script>if (window.module) module = window.module;</script>
+</head>
+<body>
+    <div class="modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="checkbox">
+                <label><input type="checkbox" id='option-alwaysOnTop'>Always On Top</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id='option-youtube-view-mode' checked>Youtube View Mode</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <webview id="youtube" src="https://youtube.com/" allowtransparency></webview>
+</body>
+
+<script>
+
+    var state = {
+        alwaysOnTop: false,
+        openNewWindow: true
+    }
+
+    var currentWindow = require('electron').remote.getCurrentWindow();
+    var mousetrap = require('mousetrap');
+    var youtube = document.getElementById('youtube');
+    var ipc = require('electron').ipcRenderer;
+
+    // Bind Shortcuts
+    mousetrap.bind("command+o", function() {
+        $("#optionModal").modal('show');
+        return false;
+    });
+
+    mousetrap.bind('command+[', function() {
+        youtube.goBack();
+    });
+
+    mousetrap.bind('command+]', function() {
+        youtube.goForward();
+    });
+
+    function parseYoutubeVideoId(url){
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        return (match&&match[7].length==11)? match[7] : false;
+    }
+
+    youtube.addEventListener('did-navigate-in-page', function(e) {
+        if (state.openNewWindow === true && e.url.indexOf("https://www.youtube.com/watch?") === 0) {
+            var url = "https://www.youtube.com/embed/" + parseYoutubeVideoId(e.url) + "?autoplay=1"
+            ipc.send('openNewYoutube', url);
+            youtube.goBack();
+        }
+    });
+
+    $("#option-alwaysOnTop").on('click', function() {
+        currentWindow.setAlwaysOnTop(this.checked);
+    });
+
+    $("#option-youtube-view-mode").on('click', function() {
+        state.openNewWindow = this.checked;
+    });
+</script>
+</html>

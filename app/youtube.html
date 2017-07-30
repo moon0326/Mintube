@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mintube</title>
+    <link rel="stylesheet" href="./style.css">
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src='./jquery.min.js'></script>
+    <script>if (window.module) module = window.module;</script>
+</head>
+<body>
+    <div id="draggable">Drag Me to Move</div>
+    <webview id="youtube" src="" allowtransparency></webview>
+</body>
+
+<script>
+    $("#youtube").attr("src", require('electron').remote.getCurrentWindow().custom.url);
+
+    var draggable = $("#draggable");
+
+    $("body").hover(function() {
+        draggable.show();
+    }, function() {
+        draggable.hide();
+    });
+</script>
+</html>
