@@ -26,3 +26,5 @@ Clicking a video thumbnail opens a new player.
 
 #### Options 
 ![](./screenshots/option.jpg)
+
+Weekend Project: 1
