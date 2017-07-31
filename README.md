@@ -1,6 +1,6 @@
 # Floatube
 
-Floatube is a minimalistic youtube viewer that just opens youtube video in a new frameless window.
+Floatube is a minimalist youtube viewer that just opens youtube video in a new frameless window.
 
 There is no navigation or whatsoever. You need to use the following keyboard shortcuts.
 
