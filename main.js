@@ -5,6 +5,8 @@ var Menu = electron.Menu;
 var path = require('path');
 var url = require('url');
 var ipc = electron.ipcMain;
+var settings = require('electron-settings');
+
 require('electron-debug')({
   showDevTools: false
 });
@@ -63,6 +65,13 @@ function createWindow (initUrl, frame) {
     frame: frame,
     icon: path.join(__dirname, "icon.png")
   })
+  var position = {
+    x: settings.get('position.x'),
+    y: settings.get('position.y')
+  }
+  if (position.x && position.y) {
+    mainWindow[mainWindowIndex].setPosition(position.x, position.y);
+  }
 
   if (typeof initUrl === 'undefined') {
     initUrl = url.format({
